@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three-Stage AI System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="system-container">
+    <div id="stage1-container">
+      <h2>Stage 1 (Sonnet 3.5)</h2>
+      <a id="sonnet-link" href=""></a>
+      <div id="sonnet-response"></div>
+    </div>
+
+    <div id="stage2-container">
+      <h2>Stage 2 (In-Site LLM)</h2>
+      <div id="llm-interface">
+        <textarea id="llm-input" placeholder="Communicate with the in-site LLM..."></textarea>
+        <button id="llm-submit">Send</button>
+        <button id="skip-cooldown">Skip Cooldown</button>
+        <div id="cooldown-timer"></div>
+      </div>
+      <div id="llm-response"></div>
+      <div id="llm-memory-display"></div>
+    </div>
+
+    <div id="stage3-container">
+      <h2>Stage 3 (Transformers)</h2>
+      <div id="transformer-output"></div>
+      <video id="webcam" autoplay playsinline style="display: none;"></video>
+      <canvas id="output-canvas"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  <script type="module" src="stage1.js"></script>
+  <script type="module" src="stage2.js"></script>
+  <script type="module" src="stage3.js"></script>
+  <script type="module" src="main.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
